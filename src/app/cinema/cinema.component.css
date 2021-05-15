@@ -1,0 +1,32 @@
+.header{
+  text-align: center;
+  width:100%;
+}
+.data{
+  float: left;
+  text-align: center;
+  width: 50%;
+  height: 50%;
+}
+.films{
+  float: left;
+  text-align: center;
+  width:50%;
+  height: 50%;
+}
+.editData{
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  width: 100%;
+}
+.editData, button{
+  margin-left: 20px;
+}
+.editData, hr{
+  border-width: 5px;
+}
+li{
+  list-style: none;
+}
+

@@ -1,0 +1,77 @@
+<div class="header">
+  <h1>Rezerwacja biletow</h1>
+</div>
+<div class="data">
+  <h2>{{cinemaName}}</h2>
+  <h3>Lokalizacja</h3>
+  <ul>
+    <li>Miasto: {{address.city}}</li>
+    <li>Ulica: {{address.street}} {{address.number}}</li>
+  </ul>
+  <h3>Ceny biletów</h3>
+  <ul>
+    <li>Ulgowy: {{tickets.ulgowy}} zł</li>
+    <li>Normalny: {{tickets.normalny}} zł</li>
+  </ul>
+</div>
+<div class="films">
+  <h2>Aktualny Repertuar:</h2>
+  <ul>
+    <li *ngFor="let film of films; let i = index">
+      {{film}}
+    </li>
+  </ul>
+
+
+</div>
+
+<div class="editData">
+  <hr>
+  <div>
+    <button (click)="changeEditMode()">Zmiana Danych</button>
+  </div>
+  <div *ngIf="editMode">
+    <h2>Zmiana Danych:</h2>
+    <form>
+      <div>
+        <label>Nazwa Kina: </label>
+        <input type="text" [(ngModel)]="cinemaName" name="cinemaName">
+      </div>
+      <div>
+        <label><h3>Adres:</h3></label>
+      </div>
+      <div>
+        <label>Miasto: </label>
+        <input type="text" [(ngModel)]="address.city" name="address.city">
+      </div>
+      <div>
+        <label>Ulica i numer: </label>
+        <input type="text" [(ngModel)]="address.street" name="address.street"><input type="number" [(ngModel)]="address.number" name="address.number">
+      </div>
+      <div>
+        <label><h3>Bilety:</h3></label>
+      </div>
+      <div>
+        <label>Ulgowy: </label>
+        <input type="text" [(ngModel)]="tickets.ulgowy" name="tickets.ulgowy">
+      </div>
+      <div>
+        <label>Normalny: </label>
+        <input type="text" [(ngModel)]="tickets.normalny" name="tickets.normalny">
+      </div>
+      <div>
+        <label><h3>Dodwanie/Usuwanie filmów:</h3></label>
+      </div>
+      <div>
+        <label for="filmField">Film: </label>
+        <input type="text" #film id="filmField">
+        <button (click)="addFilm(film.value)">Dodaj film</button>
+      </div>
+    </form>
+    <ul>
+      <li *ngFor="let film of films; let i = index">
+        {{film}} <button (click)="deleteFilm(film)" >Usun film</button>
+      </li>
+    </ul>
+  </div>
+</div>
